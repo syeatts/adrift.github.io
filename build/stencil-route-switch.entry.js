@@ -1,7 +1,7 @@
-import { r as registerInstance, d as getContext, h, c as getElement } from './core-ed645cd6.js';
-import { A as ActiveRouter } from './active-router-eabed24a.js';
-import { m as matchPath } from './match-path-4e416d02.js';
-import './location-utils-1c8d4830.js';
+import { r as registerInstance, e as getContext, h, g as getElement } from './index-590b6de4.js';
+import { A as ActiveRouter } from './active-router-1568508f.js';
+import { m as matchPath } from './match-path-760e1797.js';
+import './location-utils-fea12957.js';
 
 const getUniqueId = () => {
     return ((Math.random() * 10e16).toString().match(/.{4}/g) || []).join('-');

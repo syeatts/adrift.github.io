@@ -1,13 +1,16 @@
-import { r as registerInstance, h } from './core-ed645cd6.js';
+import { r as registerInstance, h } from './index-590b6de4.js';
+import './string-builder-cedb30eb.js';
+
+const appHomeCss = ".app-home{padding:10px}button{background:#5851ff;color:white;margin:8px;border:none;font-size:13px;font-weight:700;text-transform:uppercase;padding:16px 20px;border-radius:2px;box-shadow:0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);outline:0;letter-spacing:.04em;transition:all .15s ease;cursor:pointer}button:hover{box-shadow:0 3px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1);transform:translateY(1px)}";
 
 const AppHome = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
     }
     render() {
-        return (h("div", { class: 'app-home' }, h("p", null, "Welcome to Adrift.")));
+        return (h("div", { class: 'app-home' }, h("p", null, "Welcome to Adrift."), h("p", null, "Adrift was conceived as a character-concept generator using preformatted data such as class names, backgrounds and backstories."), h("p", null, "The concept was originally intended for a naval-based game in which characters meet and interact on the high-seas, but we have plans to adapt the input to traditional games as well."), h("p", null, "We also have rules for generating dungeons and ships (and potentially much more) in the works. This is NOT a character generator, but an idea generator for players and DMs to quickly build out concepts."), h("p", null, "You are HIGHLY encouraged NOT to discard any \"wacky\" combinations you encounter. That Lawful Evil half-orc cleric who used to be a scholar but left that life behind to make their living as a common sailor? That might be the most interesting character you ever play! Have fun coming up with the WHY behind our WHAT!"), h("p", null, "Adrift does NOT use or implement any mechanics specific to any licensed property or use any trademarked material as a part of its code. You will not get to bypass buying the books for your RPG system of choice!")));
     }
-    static get style() { return ".app-home {\n  padding: 10px;\n}\n\nbutton {\n  background: #5851ff;\n  color: white;\n  margin: 8px;\n  border: none;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase;\n  padding: 16px 20px;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);\n  box-shadow: 0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);\n  outline: 0;\n  letter-spacing: .04em;\n  -webkit-transition: all .15s ease;\n  transition: all .15s ease;\n  cursor: pointer;\n}\n  \nbutton:hover {\n  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1);\n  box-shadow: 0 3px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1);\n  -webkit-transform: translateY(1px);\n  transform: translateY(1px);\n}"; }
 };
+AppHome.style = appHomeCss;
 
 export { AppHome as app_home };

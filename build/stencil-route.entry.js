@@ -1,7 +1,9 @@
-import { r as registerInstance, h, c as getElement } from './core-ed645cd6.js';
-import { A as ActiveRouter } from './active-router-eabed24a.js';
-import { m as matchPath, a as matchesAreEqual } from './match-path-4e416d02.js';
-import './location-utils-1c8d4830.js';
+import { r as registerInstance, h, g as getElement } from './index-590b6de4.js';
+import { A as ActiveRouter } from './active-router-1568508f.js';
+import { m as matchPath, a as matchesAreEqual } from './match-path-760e1797.js';
+import './location-utils-fea12957.js';
+
+const routeCss = "stencil-route.inactive{display:none}";
 
 const Route = class {
     constructor(hostRef) {
@@ -79,7 +81,6 @@ const Route = class {
     static get watchers() { return {
         "location": ["computeMatch"]
     }; }
-    static get style() { return "stencil-route.inactive {\n  display: none;\n}"; }
 };
 ActiveRouter.injectProps(Route, [
     'location',
@@ -87,5 +88,6 @@ ActiveRouter.injectProps(Route, [
     'historyType',
     'routeViewsUpdated'
 ]);
+Route.style = routeCss;
 
 export { Route as stencil_route };

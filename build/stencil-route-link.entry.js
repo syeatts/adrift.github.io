@@ -1,8 +1,8 @@
-import { r as registerInstance, h, c as getElement } from './core-ed645cd6.js';
-import { A as ActiveRouter } from './active-router-eabed24a.js';
-import { m as matchPath } from './match-path-4e416d02.js';
-import './location-utils-1c8d4830.js';
-import { i as isModifiedEvent } from './dom-utils-c19d19f4.js';
+import { r as registerInstance, h, g as getElement } from './index-590b6de4.js';
+import { A as ActiveRouter } from './active-router-1568508f.js';
+import { m as matchPath } from './match-path-760e1797.js';
+import './location-utils-fea12957.js';
+import { i as isModifiedEvent } from './dom-utils-109a7d75.js';
 
 const getUrl = (url, root) => {
     // Don't allow double slashes

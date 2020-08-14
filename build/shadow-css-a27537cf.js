@@ -1,3 +1,6 @@
+/*
+ Stencil Client Platform v1.15.0 | MIT Licensed | https://stenciljs.com
+ */
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -42,19 +45,14 @@ const _polyfillHost = '-shadowcsshost';
 const _polyfillSlotted = '-shadowcssslotted';
 // note: :host-context pre-processed to -shadowcsshostcontext.
 const _polyfillHostContext = '-shadowcsscontext';
-const _parenSuffix = ')(?:\\((' +
-    '(?:\\([^)(]*\\)|[^)(]*)+?' +
-    ')\\))?([^,{]*)';
+const _parenSuffix = ')(?:\\((' + '(?:\\([^)(]*\\)|[^)(]*)+?' + ')\\))?([^,{]*)';
 const _cssColonHostRe = new RegExp('(' + _polyfillHost + _parenSuffix, 'gim');
 const _cssColonHostContextRe = new RegExp('(' + _polyfillHostContext + _parenSuffix, 'gim');
 const _cssColonSlottedRe = new RegExp('(' + _polyfillSlotted + _parenSuffix, 'gim');
 const _polyfillHostNoCombinator = _polyfillHost + '-no-combinator';
 const _polyfillHostNoCombinatorRe = /-shadowcsshost-no-combinator([^\s]*)/;
-const _shadowDOMSelectorsRe = [
-    /::shadow/g,
-    /::content/g
-];
-const _selectorReSuffix = '([>\\s~+\[.,{:][\\s\\S]*)?$';
+const _shadowDOMSelectorsRe = [/::shadow/g, /::content/g];
+const _selectorReSuffix = '([>\\s~+[.,{:][\\s\\S]*)?$';
 const _polyfillHostRe = /-shadowcsshost/gim;
 const _colonHostRe = /:host/gim;
 const _colonSlottedRe = /::slotted/gim;
@@ -87,7 +85,7 @@ const processRules = (input, ruleCallback) => {
         }
         const cssRule = {
             selector,
-            content
+            content,
         };
         const rule = ruleCallback(cssRule);
         return `${m[1]}${rule.selector}${m[3]}${contentPrefix}${rule.content}${suffix}`;
@@ -125,7 +123,7 @@ const escapeBlocks = (input) => {
     }
     const strEscapedBlocks = {
         escapedString: resultParts.join(''),
-        blocks: escapedBlocks
+        blocks: escapedBlocks,
     };
     return strEscapedBlocks;
 };
@@ -202,7 +200,7 @@ const convertColonSlotted = (cssText, slotScopeId) => {
     });
     return {
         selectors,
-        cssText
+        cssText,
     };
 };
 const convertColonHostContext = (cssText) => {
@@ -295,7 +293,8 @@ const applyStrictSelectorScope = (selector, scopeSelector, hostSelector) => {
     return restoreSafeSelector(safeContent.placeholders, scopedSelector);
 };
 const scopeSelector = (selector, scopeSelectorText, hostSelector, slotSelector) => {
-    return selector.split(',')
+    return selector
+        .split(',')
         .map(shallowPart => {
         if (slotSelector && shallowPart.indexOf('.' + slotSelector) > -1) {
             return shallowPart.trim();
@@ -316,13 +315,12 @@ const scopeSelectors = (cssText, scopeSelectorText, hostSelector, slotSelector, 
         if (rule.selector[0] !== '@') {
             selector = scopeSelector(rule.selector, scopeSelectorText, hostSelector, slotSelector);
         }
-        else if (rule.selector.startsWith('@media') || rule.selector.startsWith('@supports') ||
-            rule.selector.startsWith('@page') || rule.selector.startsWith('@document')) {
+        else if (rule.selector.startsWith('@media') || rule.selector.startsWith('@supports') || rule.selector.startsWith('@page') || rule.selector.startsWith('@document')) {
             content = scopeSelectors(rule.content, scopeSelectorText, hostSelector, slotSelector);
         }
         const cssRule = {
             selector: selector.replace(/\s{2,}/g, ' ').trim(),
-            content
+            content,
         };
         return cssRule;
     });
@@ -362,8 +360,7 @@ const scopeCss = (cssText, scopeId, commentOriginalSelector) => {
             if (rule.selector[0] !== '@') {
                 return processCommentedSelector(rule);
             }
-            else if (rule.selector.startsWith('@media') || rule.selector.startsWith('@supports') ||
-                rule.selector.startsWith('@page') || rule.selector.startsWith('@document')) {
+            else if (rule.selector.startsWith('@media') || rule.selector.startsWith('@supports') || rule.selector.startsWith('@page') || rule.selector.startsWith('@document')) {
                 rule.content = processRules(rule.content, processCommentedSelector);
                 return rule;
             }

@@ -1,4 +1,4 @@
-import { h } from './core-ed645cd6.js';
+import { h } from './index-590b6de4.js';
 
 const createProviderConsumer = (defaultState, consumerRender) => {
     let listeners = new Map();
