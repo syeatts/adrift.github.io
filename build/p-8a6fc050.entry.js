@@ -1,0 +1,1 @@
+import{r as t,h as s,g as e}from"./p-903d2bca.js";const r=class{constructor(s){t(this,s)}async getSelection(){return this.select.value}render(){return s("div",{class:"string-builder"},s("select",{ref:t=>this.select=t},this.selectOpts.map(t=>s("option",{value:t},t))))}get el(){return e(this)}};r.style="";export{r as select_box}
